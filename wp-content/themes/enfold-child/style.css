@@ -192,6 +192,13 @@ h3,
 	text-transform: none;
 }
 
+/* Override Enfold's dynamic CSS that forces uppercase on page headings */
+.template-page .entry-content-wrapper h1,
+.template-page .entry-content-wrapper h2 {
+	text-transform: none;
+	letter-spacing: 0;
+}
+
 /* Display headings: Goudy serif */
 .av-special-heading h1.av-special-heading-tag {
 	font-family: 'goudy-bookletter-1911', serif;
