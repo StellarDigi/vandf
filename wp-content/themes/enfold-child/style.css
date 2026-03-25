@@ -192,11 +192,12 @@ h3,
 	text-transform: none;
 }
 
-/* Override Enfold's dynamic CSS that forces uppercase on page headings */
+/* Override Enfold's dynamic CSS that forces uppercase on page headings
+   (merged CSS loads after child theme, so !important is needed) */
 .template-page .entry-content-wrapper h1,
 .template-page .entry-content-wrapper h2 {
-	text-transform: none;
-	letter-spacing: 0;
+	text-transform: none !important;
+	letter-spacing: 0 !important;
 }
 
 /* Display headings: Goudy serif */
