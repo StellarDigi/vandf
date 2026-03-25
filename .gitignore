@@ -1,0 +1,22 @@
+# Ignore everything by default
+/*
+
+# Allow these top-level items
+!.gitignore
+!wp-content/
+
+# wp-content: ignore everything, then allow themes
+wp-content/*
+!wp-content/themes/
+wp-content/themes/*
+!wp-content/themes/enfold/
+!wp-content/themes/enfold-child/
+
+# Plugin/theme build artifacts
+node_modules/
+vendor/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

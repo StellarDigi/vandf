@@ -1,0 +1,608 @@
+/*
+Theme Name:  Enfold Child
+Template:    enfold
+Description: Child theme for Violet & Finch. 
+Version:     1.0.0
+*/
+
+
+/* ==========================================================================
+   1. PAGE FRAME & BACKGROUND
+   Creates a rounded viewport border effect — a fixed white frame overlay
+   that sits above all content.
+   ========================================================================== */
+
+body,
+html {
+	background: #fff;
+}
+
+/* Fixed decorative border overlay around the full viewport */
+body::after {
+	content: '';
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	z-index: 99999;
+	border: 20px solid #fff;
+	border-radius: 36px;
+	box-sizing: border-box;
+}
+
+/* Match the frame width on layouts with a left-anchored sidebar */
+.html_header_left #main {
+	border-left-width: 20px;
+	border-color: white;
+}
+
+
+/* ==========================================================================
+   2. HEADER & SIDEBAR LAYOUT
+   Sidebar-style header (Enfold's "Header Position: Left" option).
+   ========================================================================== */
+
+/* Full-height container so sidebar stretches to fill the viewport */
+.html_header_sidebar #header .container {
+	height: 100%;
+}
+
+/* Generous logo padding in sidebar layout */
+.html_header_sidebar .logo {
+	padding: 40px 70px;
+}
+
+/* Centre-align the nav in sidebar layout */
+.html_header_sidebar .main_menu {
+	position: relative;
+	clear: both;
+	z-index: 200;
+	text-align: center;
+}
+
+/* Sticky widget area pinned to the bottom-left of the sidebar
+   (used for contact snippet, opening hours, etc.) */
+#header .avia-custom-sidebar-widget-area .widget {
+	position: fixed;
+	border: none;
+	bottom: 0;
+	left: 0;
+	max-width: 320px;
+}
+
+/* Widget title styling inside the sidebar header */
+#header_main .widgettitle {
+	font-size: 0.8em;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	text-align: center;
+	font-family: 'montserrat', sans-serif;
+}
+
+/* Widget body text inside the sidebar header */
+#header_main .textwidget p {
+	font-size: 0.9em;
+	text-align: center;
+}
+
+
+/* ==========================================================================
+   3. LOGO
+   ========================================================================== */
+
+.avia-standard-logo {
+	padding: 24px 0;
+}
+
+/* Reduce padding once the header has scrolled/compacted */
+.header-scrolled .avia-standard-logo {
+	padding: 0;
+}
+
+
+/* ==========================================================================
+   4. NAVIGATION
+   ========================================================================== */
+
+/* Main nav link: tighten padding, remove bottom border in sidebar layout */
+.html_header_sidebar #header .av-main-nav > li > a {
+	padding: 15px 3px;
+	border-bottom-width: 0;
+}
+
+/* Nav text: Montserrat, brand green, tracked — transition colour smoothly */
+.avia-menu-text {
+	font-family: 'montserrat', sans-serif;
+	color: #3d5c4b;
+	letter-spacing: 1px;
+	transition: color 0.3s ease;
+}
+
+/* Standard header: slightly darker text at 17px */
+#top #header .av-main-nav > li > a .avia-menu-text {
+	color: #555555;
+	font-size: 17px;
+}
+
+/* Transparent header: white text */
+#top #header.header_color.av_header_transparency .av-main-nav > li > a .avia-menu-text {
+	color: #fff;
+}
+
+/* Hover: fade to accent purple */
+#top #header .av-main-nav > li > a:hover .avia-menu-text {
+	background: none;
+	color: #6b4e71 !important;
+}
+
+/* Hover on transparent header: warm cream */
+#top #header.header_color.av_header_transparency .av-main-nav > li > a:hover .avia-menu-text {
+	color: #f0e9d8 !important;
+}
+
+/* Active/current page underline: give it breathing room */
+#top #header .av-main-nav > li > a .avia-menu-text {
+	text-underline-offset: 5px;
+}
+
+/* Suppress Enfold's own underline behaviour on the link itself */
+#top #header .av-main-nav > li > a {
+	text-decoration: none;
+}
+
+/* Dropdown submenu panel */
+.av-main-nav ul {
+	width: 280px;
+	padding: 10px;
+}
+
+/* Submenu container offset */
+#top .av-submenu-container .container {
+	padding: 0 50px;
+}
+
+/* Remove left border from the first submenu item */
+#top .av-subnav-menu > li:first-child a {
+	border-left: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+
+/* ==========================================================================
+   5. TYPOGRAPHY — HEADINGS
+   Brand palette: Goudy Bookletter 1911 for display headings,
+   Montserrat for labels and nav, brand green (#3d5c4b) throughout.
+   ========================================================================== */
+
+/* Base heading colour, weight, and case reset */
+h1,
+h2,
+h3,
+.av-special-heading-tag,
+.avia-menu-text,
+.avia-testimonial-name,
+.long-h1 h1.av-special-heading-tag,
+.avia-testimonial-subtitle,
+.av-masonry-date,
+.minor-meta,
+.author a,
+.avia-caption-content p {
+	font-weight: 400;
+	color: #3d5c4b;
+	text-transform: none;
+}
+
+/* Display headings: Goudy serif */
+.av-special-heading h1.av-special-heading-tag {
+	font-family: 'goudy-bookletter-1911', serif;
+	font-size: 60px;
+	line-height: 1em;
+}
+
+/* Homepage hero heading: larger and lighter */
+.home .av-special-heading h1.av-special-heading-tag {
+	color: #f0e9d8;
+	margin-bottom: 20px;
+	font-size: 80px;
+}
+
+/* Bottom padding on all special heading tags */
+.av-special-heading-tag {
+	padding-bottom: 20px;
+}
+
+/* Remove the inner rule Enfold adds to special headings */
+.main_color .special-heading-inner-border {
+	border-width: 0;
+}
+
+/* Decorative rule above the heading baseline */
+h1.av-special-heading-tag::before,
+h2.av-special-heading-tag::before {
+	content: '';
+	position: absolute;
+	width: 80px;
+	height: 2px;
+	bottom: 10px;
+	left: 0;
+	border-bottom: 2px solid #6b4e71;
+}
+
+/* No decorative rule on the homepage hero */
+.home h1.av-special-heading-tag::before {
+	border-bottom: none;
+}
+
+/* Kicker / above-heading label */
+.av-subheading_above {
+	margin-bottom: 0.5em;
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 0.9em;
+	letter-spacing: 0.5px;
+	color: #3d5c4b;
+	font-family: 'montserrat', sans-serif;
+}
+
+/* Body copy */
+p {
+	line-height: 1.4em;
+}
+
+/* h3 links should look like headings, not underlined anchors */
+h3 a {
+	font-weight: 600;
+	text-decoration: none;
+}
+
+
+/* ==========================================================================
+   6. TYPOGRAPHY — UTILITY CLASSES
+   ========================================================================== */
+
+/* Stylised ampersand in headings/logotype (e.g. "Violet & Finch") */
+.special_amp {
+	font-family: inherit;
+	font-style: normal;
+	font-size: inherit;
+	font-weight: 600;
+	color: inherit;
+}
+
+/* Large decorative step number for process/how-it-works sections */
+.step-num {
+	font-family: 'goudy-bookletter-1911', serif;
+	font-weight: 300;
+	font-size: 60px;
+	color: #faf3ec;
+	line-height: 1;
+	margin-bottom: 16px;
+}
+
+/* Label beneath the step number */
+.step-title {
+	font-weight: 500;
+	font-size: 0.8em;
+	line-height: 1.2em;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	margin-bottom: 12px;
+}
+
+
+/* ==========================================================================
+   7. BLOCKQUOTES
+   ========================================================================== */
+
+/* Pull quote on coloured/alternate-background sections */
+.alternate_color blockquote {
+	font-family: 'goudy-bookletter-1911', serif;
+	font-weight: 500;
+	font-size: 140%;
+}
+
+/* Inline blockquote: thin left rule */
+.main_color blockquote {
+	border-left-width: 2px;
+	font-size: 1em;
+	line-height: 1.5em;
+	color: #000;
+	padding-left: 50px;
+}
+
+
+/* ==========================================================================
+   8. LINKS
+   ========================================================================== */
+
+a:hover {
+	text-decoration: underline;
+	text-underline-offset: 4px;
+}
+
+/* Suppress underline inside card/grid links */
+.grid-content a:hover {
+	text-decoration: none;
+}
+
+
+/* ==========================================================================
+   9. BUTTONS
+   Transparent base with purple (#6b4e71) border. On hover, fills with purple.
+   text-decoration: none is set on the base element to prevent a:hover from
+   painting an underline that child elements cannot remove.
+   ========================================================================== */
+
+#top .avia-button,
+#top .avia-button.avia-color-light {
+	background: transparent;
+	border: 2px solid #6b4e71;
+	font-family: 'montserrat', sans-serif;
+	font-size: 0.7em;
+	font-weight: 400;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: white;
+	text-decoration: none;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover: fill with purple, no underline */
+#top .avia-button:hover,
+#top .avia-button.avia-color-light:hover {
+	background-color: #6b4e71 !important;
+	color: #fff !important;
+	text-decoration: none !important;
+	opacity: 1;
+}
+
+/* Dark variant: purple text on transparent */
+#top .avia-button.avia-color-dark {
+	background: transparent;
+	border: 2px solid #6b4e71;
+	color: #6b4e71;
+	text-decoration: none;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark variant hover: fill with purple, text goes white, no underline */
+#top .avia-button.avia-color-dark:hover {
+	background-color: #6b4e71 !important;
+	color: #fff !important;
+	text-decoration: none !important;
+	opacity: 1;
+}
+
+
+/* ==========================================================================
+   10. GRID / MASONRY / CARDS
+   ========================================================================== */
+
+/* Card: flat (no shadow), with spacing */
+.grid-entry .inner-entry {
+	box-shadow: none;
+	margin: 0 50px 50px 0;
+}
+
+/* Hide the decorative arrow tab on cards */
+.grid-entry .avia-arrow {
+	display: none;
+}
+
+/* Card content area padding */
+.grid-content {
+	padding: 20px;
+	position: relative;
+	margin-bottom: 30px;
+}
+
+/* Card title */
+.grid-entry-title {
+	line-height: 1.1em;
+}
+
+.grid-entry-title a {
+	font-size: 1.7em;
+	letter-spacing: 0;
+	text-transform: none;
+	color: #000;
+	line-height: 1.3em;
+}
+
+.grid-entry-title a:hover {
+	color: #ad9a0e;
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+/* Utility: render masonry images in greyscale */
+.greyscale .av-masonry-image-container {
+	filter: grayscale(100%);
+}
+
+/* Hide the default image overlay (title shown via other means) */
+.image-overlay {
+	display: none;
+}
+
+
+/* ==========================================================================
+   11. SLIDESHOW
+   ========================================================================== */
+
+/* Fixed height for the home projects slider */
+#home-projects ul.avia-slideshow-inner {
+	height: 630px;
+}
+
+/* High-contrast arrow backgrounds */
+.avia-slideshow-arrows a::before {
+	background: rgba(0, 0, 0, 0.8);
+}
+
+/* Dot pagination controls */
+#top .av-control-minimal .avia-slideshow-dots a {
+	margin: 4px;
+	padding: 3px;
+}
+
+
+/* ==========================================================================
+   12. BLOG
+   ========================================================================== */
+
+/* Post and slider titles: no uppercase transform */
+.html_modern-blog #top .post-entry .post-title,
+.html_modern-blog .avia-content-slider .slide-entry-title {
+	text-transform: none;
+	font-size: 26px;
+}
+
+/* Left-align blog post body */
+#top .fullsize .template-blog .post .entry-content-wrapper {
+	text-align: left;
+}
+
+/* Sections with minimum height: pin content to the bottom */
+.avia-section.av-minimum-height .container .content {
+	vertical-align: bottom;
+}
+
+
+/* ==========================================================================
+   13. GALLERY
+   ========================================================================== */
+
+#top div .avia-gallery img {
+	padding: 0;
+}
+
+
+/* ==========================================================================
+   14. IMAGE CAPTIONS
+   ========================================================================== */
+
+.av-image-copyright.av-copyright-left {
+	left: 0;
+	padding: 20px;
+	border-top-right-radius: 5px;
+	color: white;
+	text-shadow: 0 0 5px rgba(0, 0, 0, 1);
+}
+
+
+/* ==========================================================================
+   15. LISTS
+   Text block lists use a custom asterisk bullet instead of the default marker.
+   ========================================================================== */
+
+.av_textblock_section ul {
+	list-style: none;
+}
+
+.av_textblock_section ul li::before {
+	content: '*';
+	color: #4a6252;
+	display: inline-block;
+	width: 1em;
+	margin-left: -1em;
+}
+
+
+/* ==========================================================================
+   16. FOOTER
+   ========================================================================== */
+
+.footer_color p,
+.copyright {
+	font-size: 16px;
+	line-height: 1.5em;
+}
+
+
+/* ==========================================================================
+   17. SCROLL-TO-TOP
+   Hidden — the fixed viewport frame makes this redundant.
+   ========================================================================== */
+
+#scroll-top-link,
+#scroll-top-link.avia_pop_class {
+	display: none;
+	visibility: hidden;
+}
+
+
+/* ==========================================================================
+   18. RESPONSIVE — TABLET & MOBILE  (max-width: 1024px)
+   ========================================================================== */
+
+@media only screen and (max-width: 1024px) {
+
+	/* Remove the viewport frame on smaller screens — too cramped */
+	body::after {
+		display: none;
+	}
+
+	.html_header_left #main {
+		border-left-width: 0;
+	}
+
+}
+
+/* Swap to horizontal mobile logo when Enfold's mobile menu kicks in (989px).
+   The inline SVG is hidden and replaced via a background image on its container. */
+@media only screen and (max-width: 989px) {
+
+	/* Reset sidebar logo padding so it aligns with page content on mobile */
+	.html_header_sidebar .logo {
+		padding: 0;
+	}
+
+	/* Force-hide the inline SVG mark and replace with horizontal text logo */
+	.logo.avia-svg-logo a svg {
+		display: none !important;
+	}
+
+	/* Fill the full 90px mobile header height so background-position centers vertically */
+	.logo.avia-svg-logo a {
+		display: block !important;
+		background-image: url('/wp-content/uploads/2026/03/mobile-logo.svg');
+		background-repeat: no-repeat;
+		background-size: 160px auto;
+		background-position: left center;
+		width: 160px;
+		height: 90px;
+	}
+
+}
+
+@media only screen and (max-width: 767px) {
+
+	/* Extra vertical breathing room via a spacer element */
+	.hr-invisible {
+		height: 50px;
+	}
+
+	/* Slider titles: smaller on mobile */
+	.html_modern-blog .avia-content-slider .slide-entry-title {
+		font-size: 18px;
+		line-height: 20px;
+	}
+
+	/* Slider excerpts: smaller on mobile */
+	.avia-content-slider .slide-entry-excerpt {
+		font-size: 14px;
+		line-height: 20px;
+	}
+
+	/* Hide category labels on blog cards — saves space */
+	.html_modern-blog #top .post-entry .blog-categories {
+		display: none;
+	}
+
+	/* Heading: significantly smaller on narrow screens */
+	h1.av-special-heading-tag {
+		font-size: 26px;
+	}
+
+}
