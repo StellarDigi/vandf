@@ -240,14 +240,14 @@ h2.av-special-heading-tag::before {
 	position: absolute;
 	width: 80px;
 	height: 2px;
-	bottom: 12px;
+	bottom: 5px;
 	left: 0;
 	background: #6b4e71;
 }
 
 /* No decorative rule on the homepage hero */
 .home h1.av-special-heading-tag::before {
-	border-bottom: none;
+	display: none;
 }
 
 /* Kicker / above-heading label */
