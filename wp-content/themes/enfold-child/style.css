@@ -139,9 +139,18 @@ body::after {
 	color: #f0e9d8 !important;
 }
 
-/* Active/current page underline: give it breathing room */
-#top #header .av-main-nav > li > a .avia-menu-text {
+/* Nav hover: underline on the menu text (Enfold hides .avia-menu-fx in sidebar layout) */
+.html_header_sidebar #header .av-main-nav > li > a .avia-menu-text {
+	text-decoration: none;
 	text-underline-offset: 5px;
+}
+
+.html_header_sidebar #header .av-main-nav > li > a:hover .avia-menu-text,
+.html_header_sidebar #header .av-main-nav > li.current-menu-item > a .avia-menu-text,
+.html_header_sidebar #header .av-main-nav > li.current-menu-ancestor > a .avia-menu-text {
+	text-decoration: underline;
+	text-underline-offset: 5px;
+	text-decoration-color: #6b4e71;
 }
 
 /* Suppress Enfold's own underline behaviour on the link itself */
@@ -224,16 +233,16 @@ h3,
 	border-width: 0;
 }
 
-/* Decorative rule above the heading baseline */
+/* Decorative rule below the heading text */
 h1.av-special-heading-tag::before,
 h2.av-special-heading-tag::before {
 	content: '';
 	position: absolute;
 	width: 80px;
 	height: 2px;
-	bottom: 10px;
+	bottom: 0;
 	left: 0;
-	border-bottom: 2px solid #6b4e71;
+	background: #6b4e71;
 }
 
 /* No decorative rule on the homepage hero */
