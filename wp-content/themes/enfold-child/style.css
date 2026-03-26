@@ -240,7 +240,7 @@ h2.av-special-heading-tag::before {
 	position: absolute;
 	width: 80px;
 	height: 2px;
-	bottom: 0;
+	bottom: 12px;
 	left: 0;
 	background: #6b4e71;
 }
